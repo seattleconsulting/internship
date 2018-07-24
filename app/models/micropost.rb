@@ -8,15 +8,6 @@ class Micropost < ApplicationRecord
   validate  :picture_size
   has_many :likes, dependent: :destroy
 
-  # マイクロポストをいいねする
-  def like(user)
-    likes.create(user: user)
-  end
-  # マイクロポストのいいねを解除する（ネーミングセンスに対するクレームは受け付けません）
-  def unlike(user)
-    likes.find_by(user: user).destroy
-  end
-
   private
 
   # アップロードされた画像のサイズをバリデーションする

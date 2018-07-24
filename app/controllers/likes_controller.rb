@@ -1,7 +1,6 @@
 class LikesController < ApplicationController
   def create
-    @micropost = Micropost.find(params[:micropost_id])
-    @micropost.like(current_user)
+    current_user.like(params[:micropost_id])
     redirect_to root_path
   end
 
